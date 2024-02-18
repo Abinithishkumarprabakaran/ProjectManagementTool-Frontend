@@ -47,7 +47,7 @@ const styles = {
 
 const existedUser = async (loginUser) => {
 
-    const data = await fetch(`${API}/login`, {
+    const data = await fetch(`${API}/users/login`, {
         method: "POST",
         body: JSON.stringify(loginUser),
         headers: {

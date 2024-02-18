@@ -51,7 +51,7 @@ const navigate = useNavigate();
 
 const addUser = async (newUser) => {
 
-    await fetch(`${API}/signup`, {
+    await fetch(`${API}/users/signup`, {
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {

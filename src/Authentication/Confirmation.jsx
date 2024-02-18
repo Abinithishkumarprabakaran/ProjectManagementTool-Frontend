@@ -40,7 +40,7 @@ const styles = {
 
 const existedUser = async (confirmedUser) => {
 
-    const data = await fetch(`${API}/confirmation`, {
+    const data = await fetch(`${API}/users/confirmation`, {
         method: "POST",
         body: JSON.stringify(confirmedUser),
         headers: {

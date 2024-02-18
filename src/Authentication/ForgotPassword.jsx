@@ -32,7 +32,7 @@ export default function ForgotPassword() {
 
   const OTPVerification = async (OTPVerify) => {
 
-    const data = await fetch(`${API}/forgotpassword`, {
+    const data = await fetch(`${API}/users/forgotpassword`, {
         method: "POST",
         body: JSON.stringify(OTPVerify),
         headers: {

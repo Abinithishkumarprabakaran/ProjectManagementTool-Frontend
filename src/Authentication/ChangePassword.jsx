@@ -46,7 +46,7 @@ const styles = {
 
 const updatePassword = async (updatedPassword) => {
 
-    const data = await fetch(`${API}/changepassword/${id}`, {
+    const data = await fetch(`${API}/users/changepassword/${id}`, {
         method: "PUT",
         body: JSON.stringify(updatedPassword),
         headers: {
