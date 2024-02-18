@@ -4,6 +4,7 @@ import BtnPrimary from "./BtnPrimary";
 import BtnSecondary from "./BtnSecondary";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { API } from "../global";
 
 const AddTaskModal = ({
   isAddTaskModalOpen,
@@ -19,7 +20,7 @@ const AddTaskModal = ({
   useEffect(() => {
     if (edit && isAddTaskModalOpen) {
       axios
-        .get(`http://localhost:4000/project/${projectId}/task/${taskId}`)
+        .get(`${API}/project/${projectId}/task/${taskId}`)
         .then((res) => {
           setTitle(res.data[0].task[0].title);
           setDesc(res.data[0].task[0].description);
@@ -35,7 +36,7 @@ const AddTaskModal = ({
     e.preventDefault();
     if (!edit) {
       axios
-        .post(`http://localhost:4000/project/${projectId}/task`, {
+        .post(`${API}/project/${projectId}/task`, {
           title,
           description: desc,
         })
@@ -54,7 +55,7 @@ const AddTaskModal = ({
         });
     } else {
       axios
-        .put(`http://localhost:4000/project/${projectId}/task/${taskId}`, {
+        .put(`${API}/project/${projectId}/task/${taskId}`, {
           title,
           description: desc,
         })

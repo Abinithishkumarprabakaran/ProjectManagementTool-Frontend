@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { API } from "../global";
 
 const TaskModal = ({ isOpen, setIsOpen, id }) => {
   const [taskData, setTaskData] = useState("");
@@ -11,7 +12,7 @@ const TaskModal = ({ isOpen, setIsOpen, id }) => {
   useEffect(() => {
     if (isOpen) {
       axios
-        .get(`http://localhost:4000/project/${id.projectId}/task/${id.id}`)
+        .get(`${API}/project/${id.projectId}/task/${id.id}`)
         .then((data) => {
           setTaskData({ ...data.data[0].task[0] });
         })

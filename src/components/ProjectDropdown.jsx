@@ -3,12 +3,13 @@ import { Popover } from "@headlessui/react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import AddProjectModal from "./AddProjectModal";
+import { API } from "../global";
 
 const ProjectDropdown = ({ id, navigate }) => {
   const [isModalOpen, setModalState] = useState(false);
   const handleDelete = async () => {
     try {
-      const data = await axios.delete(`http://localhost:4000/project/${id}`);
+      const data = await axios.delete(`${API}/project/${id}`);
       if (data.data.deletedCount > 0) {
         toast.success("Record deleted successfully");
         navigate("/");

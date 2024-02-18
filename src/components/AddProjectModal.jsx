@@ -5,6 +5,7 @@ import BtnSecondary from "./BtnSecondary";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import { API } from "../global";
 
 const AddProjectModal = ({
   isModalOpen,
@@ -19,7 +20,7 @@ const AddProjectModal = ({
   useEffect(() => {
     if (edit && isModalOpen) {
       axios
-        .get(`http://localhost:4000/project/${id}`)
+        .get(`${API}/project/${id}`)
         .then((res) => {
           setTitle(res.data[0].title);
           setDesc(res.data[0].description);
@@ -34,7 +35,7 @@ const AddProjectModal = ({
     e.preventDefault();
     if (!edit) {
       axios
-        .post("http://localhost:4000/project/", { userId: userId, title, description: desc })
+        .post(`${API}/project/`, { userId: userId, title, description: desc })
         .then((res) => {
           closeModal();
           const customEvent = new CustomEvent("projectUpdate", {
@@ -54,7 +55,7 @@ const AddProjectModal = ({
         });
     } else {
       axios
-        .put(`http://localhost:4000/project/${id}`, {
+        .put(`${API}/project/${id}`, {
           userId: userId,
           title,
           description: desc,

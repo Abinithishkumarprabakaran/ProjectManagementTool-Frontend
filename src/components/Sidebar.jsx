@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import AddProjectModal from './AddProjectModal'
 import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
+import { API } from "../global";
 
 const Sidebar = () => {
   const userId = useParams().userId;
@@ -22,7 +23,7 @@ const Sidebar = () => {
     setModalState(false)
   }, [])
   const projectData = () => {
-    axios.get(`http://localhost:4000/projects/?userId=${userId}`)
+    axios.get(`${API}/projects/?userId=${userId}`)
       .then((res) => {
         setProjects(res.data)
       })

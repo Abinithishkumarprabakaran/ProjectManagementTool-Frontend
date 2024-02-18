@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { REG_API } from "../global.js";
+import { API } from "../global.js";
 import { useNavigate } from "react-router-dom";
 import { Timer, Time, TimerOptions } from 'timer-node';
 
@@ -32,7 +32,7 @@ export default function ForgotPassword() {
 
   const OTPVerification = async (OTPVerify) => {
 
-    const data = await fetch(`${REG_API}/forgotpassword`, {
+    const data = await fetch(`${API}/forgotpassword`, {
         method: "POST",
         body: JSON.stringify(OTPVerify),
         headers: {

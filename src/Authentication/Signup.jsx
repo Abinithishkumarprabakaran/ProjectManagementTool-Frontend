@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { REG_API } from "../global.js"
+import { API } from "../global.js"
 import { useState } from "react";
 
 const formValidationSchema = yup.object({
@@ -51,7 +51,7 @@ const navigate = useNavigate();
 
 const addUser = async (newUser) => {
 
-    await fetch(`${REG_API}/signup`, {
+    await fetch(`${API}/signup`, {
         method: "POST",
         body: JSON.stringify(newUser),
         headers: {

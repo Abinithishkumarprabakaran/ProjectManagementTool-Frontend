@@ -6,7 +6,7 @@ import Link from '@mui/material/Link';
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { REG_API } from "../global.js";
+import { API } from "../global.js";
 import { useState } from 'react';
 
 const formValidationSchema = yup.object({
@@ -40,7 +40,7 @@ const styles = {
 
 const existedUser = async (confirmedUser) => {
 
-    const data = await fetch(`${REG_API}/confirmation`, {
+    const data = await fetch(`${API}/confirmation`, {
         method: "POST",
         body: JSON.stringify(confirmedUser),
         headers: {
