@@ -28,7 +28,6 @@ const AddTaskModal = ({
         .catch((error) => {
           toast.error("Something went wrong");
         });
-      // console.log("edit function call");
     }
   }, [isAddTaskModalOpen]);
 

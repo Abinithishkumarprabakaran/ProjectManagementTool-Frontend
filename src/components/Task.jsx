@@ -12,7 +12,6 @@ import TaskModal from "./TaskModal";
 import { API } from "../global";
 
 function Task() {
-  // console.log(id);
   const onDragEnd = (result, columns, setColumns) => {
     if (!result.destination) return;
     const { source, destination } = result;

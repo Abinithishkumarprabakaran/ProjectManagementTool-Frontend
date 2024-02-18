@@ -16,7 +16,6 @@ const AddProjectModal = ({
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const { userId } = useParams();
-  console.log(useParams());
   useEffect(() => {
     if (edit && isModalOpen) {
       axios
@@ -65,14 +64,12 @@ const AddProjectModal = ({
           const customEvent = new CustomEvent("projectUpdate", {
             detail: { ...res.data },
           });
-          // console.log(customEvent);
           document.dispatchEvent(customEvent);
           toast.success("Project updated successfully");
           setTitle("");
           setDesc("");
         })
         .catch((error) => {
-          // console.log('Error: ', error);
           if (error.response.status === 422) {
             toast.error(error.response.data.details[0].message);
           } else {

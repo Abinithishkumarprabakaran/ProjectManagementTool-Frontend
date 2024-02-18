@@ -31,7 +31,6 @@ export default function Login() {
 
     validationSchema: formValidationSchema,
     onSubmit: (loginUser) => { 
-          console.log("login Button")
           existedUser(loginUser)
     }
   });
@@ -56,13 +55,11 @@ const existedUser = async (loginUser) => {
     });
 
     if(data.status === 401){
-      // console.log("Error")
       alert("Please Sign up")
       setShow(true)
     }
     else {
       const result = await data.json()
-      console.log("success", result)
       localStorage.setItem('token', result.token)
       navigate(`/${result.userId}/projects`)
     }

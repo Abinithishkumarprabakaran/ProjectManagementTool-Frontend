@@ -25,7 +25,6 @@ export default function ForgotPassword() {
 
     validationSchema: formValidationSchema,
     onSubmit: (OTPVerify) => { 
-        // console.log(OTPVerify)
           OTPVerification(OTPVerify)
     }
   });
@@ -41,12 +40,10 @@ export default function ForgotPassword() {
     });
 
     if(data.status === 401){
-      // console.log("Invalid OTP")
       alert("Invalid OTP")
     }
     else {
       const result = await data.json()
-      // console.log("success", result)
       localStorage.setItem('OTP', result.OTP)
       navigate(`/changepassword/${result.userID}`)
     }

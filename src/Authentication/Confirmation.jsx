@@ -24,7 +24,6 @@ export default function Confirmation() {
 
     validationSchema: formValidationSchema,
     onSubmit: (confirmedUser) => { 
-      // console.log(confirmedUser)
           existedUser(confirmedUser)
     }
   });
@@ -49,7 +48,6 @@ const existedUser = async (confirmedUser) => {
     });
 
     if(data.status === 404){
-      // console.log("Please Sign Up")
       alert("Please Sign Up")
       // setShow(true)
     }

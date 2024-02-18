@@ -12,8 +12,6 @@ const Sidebar = () => {
   useEffect(() => {
   })
   const handleLocation = (e) => {
-    // console.log(e.currentTarget)
-    // console.log('paramsWindow: ', new URL(e.currentTarget.href).pathname.slice(1).split('/')[2]);
     setParamsWindow(new URL(e.currentTarget.href).pathname.slice(1).split('/')[2])
   }
   const openModal = useCallback(() => {

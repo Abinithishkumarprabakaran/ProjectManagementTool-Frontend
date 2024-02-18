@@ -37,7 +37,6 @@ export default function Signup() {
     onSubmit: (newUser) => { 
         if(newUser.password === newUser.confirmpassword){
           setShow(show)
-          // console.log(newUser)
           addUser(newUser)
         }
         else {
